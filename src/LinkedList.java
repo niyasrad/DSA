@@ -36,19 +36,33 @@ public class LinkedList {
 	
 	public void append(int value) {
 		Node node = new Node(value);
-		tail.next = node;
-		tail = tail.next;
-		length ++;
+		if (length == 0) {
+			head = node;
+			tail = node;
+			length = 1;
+		} else {
+			tail.next = node;
+			tail = tail.next;
+			length ++;
+		}
+		
 	}
 	
 	// prepend(value)
 	
 	public void prepend(int value) {
 		Node node = new Node(value);
-		Node temp = head;
-		head = node;
-		node.next = temp;
-		length ++;
+		if (length == 0) {
+			head = node;
+			tail = node;
+			length = 1;
+		} else {
+			Node temp = head;
+			head = node;
+			node.next = temp;
+			length ++;
+		}
+		
 	}
 	
 	// removeLast

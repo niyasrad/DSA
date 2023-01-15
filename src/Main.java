@@ -56,22 +56,38 @@ public class Main {
 //		stack.getHeight();
 //		stack.getTop();
 
-		Queue queue = new Queue(5);
-		queue.enqueue(5);
-		queue.enqueue(5);
-		queue.enqueue(5);
-		queue.enqueue(5);
-		queue.dequeue();
-		queue.dequeue();
-		queue.dequeue();
-		queue.dequeue();
-		queue.dequeue();
-		queue.dequeue();
-		queue.printQueue();
-		queue.getFirst();
-		queue.getLast();
-		queue.getLength();
+//		Queue queue = new Queue(5);
+//		queue.enqueue(5);
+//		queue.enqueue(5);
+//		queue.enqueue(5);
+//		queue.enqueue(5);
+//		queue.dequeue();
+//		queue.dequeue();
+//		queue.dequeue();
+//		queue.dequeue();
+//		queue.dequeue();
+//		queue.dequeue();
+//		queue.printQueue();
+//		queue.getFirst();
+//		queue.getLast();
+//		queue.getLength();
+//		
 		
+		BinarySearchTree BST = new BinarySearchTree();
+		System.out.println("Root: " + BST.root);
+		BST.insert(47);
+		BST.insert(21);
+		BST.insert(76);
+		BST.insert(18);
+		BST.insert(52);
+		BST.insert(82);
+		BST.insert(27);
+		
+		System.out.println(BST.root.left.right.value);
+		System.out.println(BST.contains(76));
+		System.out.println(BST.contains(82));
+		System.out.println(BST.contains(47));
+		System.out.println(BST.contains(69));
 	}
 
 }

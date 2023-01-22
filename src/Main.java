@@ -73,21 +73,35 @@ public class Main {
 //		queue.getLength();
 //		
 		
-		BinarySearchTree BST = new BinarySearchTree();
-		System.out.println("Root: " + BST.root);
-		BST.insert(47);
-		BST.insert(21);
-		BST.insert(76);
-		BST.insert(18);
-		BST.insert(52);
-		BST.insert(82);
-		BST.insert(27);
+//		BinarySearchTree BST = new BinarySearchTree();
+//		System.out.println("Root: " + BST.root);
+//		BST.insert(47);
+//		BST.insert(21);
+//		BST.insert(76);
+//		BST.insert(18);
+//		BST.insert(52);
+//		BST.insert(82);
+//		BST.insert(27);
+//		
+//		System.out.println(BST.root.left.right.value);
+//		System.out.println(BST.contains(76));
+//		System.out.println(BST.contains(82));
+//		System.out.println(BST.contains(47));
+//		System.out.println(BST.contains(69));
 		
-		System.out.println(BST.root.left.right.value);
-		System.out.println(BST.contains(76));
-		System.out.println(BST.contains(82));
-		System.out.println(BST.contains(47));
-		System.out.println(BST.contains(69));
+		HashTable myHashTable = new HashTable();
+		
+		myHashTable.set("A", 3);
+		myHashTable.set("AA", 1231);
+		myHashTable.set("B", 1);
+		myHashTable.set("BB", 231);
+		myHashTable.set("C", 12);
+		
+		myHashTable.printTable();
+		System.out.println(myHashTable.keys());
+		System.out.println(myHashTable.get("DOG"));
+		
+		System.out.println(myHashTable.hashInterviewQuestion());
 	}
 
 }

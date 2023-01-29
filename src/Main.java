@@ -89,19 +89,37 @@ public class Main {
 //		System.out.println(BST.contains(47));
 //		System.out.println(BST.contains(69));
 		
-		HashTable myHashTable = new HashTable();
+//		HashTable myHashTable = new HashTable();
+//		
+//		myHashTable.set("A", 3);
+//		myHashTable.set("AA", 1231);
+//		myHashTable.set("B", 1);
+//		myHashTable.set("BB", 231);
+//		myHashTable.set("C", 12);
+//		
+//		myHashTable.printTable();
+//		System.out.println(myHashTable.keys());
+//		System.out.println(myHashTable.get("DOG"));
+//		
+//		System.out.println(myHashTable.hashInterviewQuestion());
 		
-		myHashTable.set("A", 3);
-		myHashTable.set("AA", 1231);
-		myHashTable.set("B", 1);
-		myHashTable.set("BB", 231);
-		myHashTable.set("C", 12);
+		Graph graph = new Graph();
+		graph.addVertex("A");
+		graph.addVertex("B");
+		graph.addVertex("C");
+		graph.addVertex("D");
 		
-		myHashTable.printTable();
-		System.out.println(myHashTable.keys());
-		System.out.println(myHashTable.get("DOG"));
 		
-		System.out.println(myHashTable.hashInterviewQuestion());
+		graph.addEdge("A", "B");
+		graph.addEdge("A", "C");
+		graph.addEdge("A", "D");
+		graph.addEdge("B", "D");
+		graph.addEdge("C", "D");
+		
+		
+		graph.printGraph();
+		graph.removeVertex("D");		
+		graph.printGraph();
 	}
 
 }

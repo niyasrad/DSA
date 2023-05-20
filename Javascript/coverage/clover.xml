@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<coverage generated="1684583653126" clover="3.2.0">
+  <project timestamp="1684583653126" name="All files">
+    <metrics statements="49" coveredstatements="49" conditionals="16" coveredconditionals="16" methods="7" coveredmethods="7" elements="72" coveredelements="72" complexity="0" loc="49" ncloc="49" packages="4" files="4" classes="4"/>
+    <package name="bubblesort">
+      <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <file name="BubbleSort.js" path="/Users/niyashameed/Development/Projects/DSA/Javascript/Algorithms/bubblesort/BubbleSort.js">
+        <metrics statements="10" coveredstatements="10" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="52" type="stmt"/>
+        <line num="3" count="52" type="stmt"/>
+        <line num="4" count="52" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="32" type="stmt"/>
+        <line num="12" count="512" type="cond" truecount="2" falsecount="0"/>
+        <line num="13" count="52" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="insertionsort">
+      <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <file name="InsertionSort.js" path="/Users/niyashameed/Development/Projects/DSA/Javascript/Algorithms/insertionsort/InsertionSort.js">
+        <metrics statements="11" coveredstatements="11" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="56" type="stmt"/>
+        <line num="3" count="56" type="stmt"/>
+        <line num="4" count="56" type="stmt"/>
+        <line num="9" count="2" type="stmt"/>
+        <line num="10" count="17" type="stmt"/>
+        <line num="11" count="71" type="cond" truecount="2" falsecount="0"/>
+        <line num="12" count="15" type="stmt"/>
+        <line num="14" count="56" type="stmt"/>
+        <line num="18" count="2" type="stmt"/>
+        <line num="21" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="pairwise">
+      <metrics statements="16" coveredstatements="16" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
+      <file name="Pairwise.js" path="/Users/niyashameed/Development/Projects/DSA/Javascript/Algorithms/pairwise/Pairwise.js">
+        <metrics statements="16" coveredstatements="16" conditionals="10" coveredconditionals="10" methods="1" coveredmethods="1"/>
+        <line num="3" count="5" type="stmt"/>
+        <line num="4" count="5" type="stmt"/>
+        <line num="5" count="5" type="stmt"/>
+        <line num="6" count="19" type="cond" truecount="2" falsecount="0"/>
+        <line num="7" count="13" type="stmt"/>
+        <line num="8" count="13" type="stmt"/>
+        <line num="9" count="16" type="cond" truecount="4" falsecount="0"/>
+        <line num="10" count="6" type="stmt"/>
+        <line num="11" count="6" type="stmt"/>
+        <line num="12" count="6" type="stmt"/>
+        <line num="13" count="6" type="stmt"/>
+        <line num="15" count="10" type="cond" truecount="2" falsecount="0"/>
+        <line num="16" count="7" type="cond" truecount="2" falsecount="0"/>
+        <line num="17" count="6" type="stmt"/>
+        <line num="22" count="5" type="stmt"/>
+        <line num="25" count="1" type="stmt"/>
+      </file>
+    </package>
+    <package name="selectionsort">
+      <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+      <file name="SelectionSort.js" path="/Users/niyashameed/Development/Projects/DSA/Javascript/Algorithms/selectionsort/SelectionSort.js">
+        <metrics statements="12" coveredstatements="12" conditionals="2" coveredconditionals="2" methods="2" coveredmethods="2"/>
+        <line num="1" count="1" type="stmt"/>
+        <line num="2" count="34" type="stmt"/>
+        <line num="3" count="34" type="stmt"/>
+        <line num="4" count="34" type="stmt"/>
+        <line num="10" count="2" type="stmt"/>
+        <line num="11" count="34" type="stmt"/>
+        <line num="12" count="34" type="stmt"/>
+        <line num="13" count="306" type="cond" truecount="2" falsecount="0"/>
+        <line num="14" count="38" type="stmt"/>
+        <line num="17" count="34" type="stmt"/>
+        <line num="20" count="2" type="stmt"/>
+        <line num="23" count="1" type="stmt"/>
+      </file>
+    </package>
+  </project>
+</coverage>

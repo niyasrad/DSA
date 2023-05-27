@@ -30,6 +30,41 @@ class Set {
 
     size = () => this.length
 
+    union = (set) => {
+        const newSet = new Set()
+        for (let entry of this.values()) {
+            newSet.add(entry)
+        }
+        for (let entry of set.values()) {
+            newSet.add(entry)
+        }
+        return newSet
+    }
+
+    intersection = (set) => {
+        const newSet = new Set()
+        for (let entry of this.values()) {
+            if (set.has(entry)) newSet.add(entry)
+        }
+        return newSet
+    }
+
+    difference = (set) => {
+        const newSet = new Set()
+        for (let entry of this.values()) {
+            if (set.has(entry)) continue
+            newSet.add(entry)
+        }
+        return newSet
+    }
+
+    isSubsetOf = (set) => {
+        for (let entry of this.values()) {
+            if (!set.has(entry)) return false
+        }
+        return true
+    }
+
 }
 
 module.exports = Set

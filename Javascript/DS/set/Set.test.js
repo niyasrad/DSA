@@ -18,6 +18,22 @@ describe('Set', () => {
             expect(sampleSet.size).toBeInstanceOf(Function)
         })
 
+        test('Set must have a union method', () => {
+            expect(sampleSet.union).toBeInstanceOf(Function)
+        })
+
+        test('Set must have an intersection method', () => {
+            expect(sampleSet.intersection).toBeInstanceOf(Function)
+        })
+
+        test('Set must have a difference method', () => {
+            expect(sampleSet.difference).toBeInstanceOf(Function)
+        })
+
+        test('Set must have a isSubsetOf method', () => {
+            expect(sampleSet.isSubsetOf).toBeInstanceOf(Function)
+        })
+
     })
 
     describe('Functionality', () => {
@@ -49,6 +65,49 @@ describe('Set', () => {
 
         test('Set must return the size of the collection', () => {
             expect(sampleSet.size()).toBe(1)
+        })
+
+    })
+
+    describe('Extras', () => {
+
+        const sampleSetOne = new Set()
+        const sampleSetTwo = new Set()
+        const sampleSetThree = new Set()
+
+        sampleSetOne.add('a')
+        sampleSetOne.add('b')
+        sampleSetOne.add('c')
+
+        sampleSetTwo.add('c')
+        sampleSetTwo.add('d')
+
+        sampleSetThree.add('c')
+        sampleSetThree.add('d')
+        sampleSetThree.add('e')
+
+        test('Set union must return the containing values and new values together', () => {
+            expect(sampleSetOne.union(sampleSetTwo).values()).toEqual(['a','b','c','d'])
+        })
+
+        test('Set intersection must return the common values', () => {
+            expect(sampleSetOne.intersection(sampleSetTwo).values()).toEqual(['c'])
+        })
+
+        test('Set difference must return the proper collection', () => {
+            expect(sampleSetOne.difference(sampleSetTwo).values()).toEqual(['a', 'b'])
+        })
+
+        test('Subset testing #1', () => {
+            expect(sampleSetTwo.isSubsetOf(sampleSetThree)).toBe(true)
+        })
+
+        test('Subset testing #2', () => {
+            expect(new Set().isSubsetOf(new Set())).toBe(true)
+        })
+
+        test('Subset testing #3', () => {
+            expect(sampleSetOne.isSubsetOf(sampleSetTwo)).toBe(false)
         })
 
     })

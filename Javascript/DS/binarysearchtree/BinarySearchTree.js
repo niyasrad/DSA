@@ -38,6 +38,24 @@ class BinarySearchTree {
         }
     }
 
+    findMin = () => {
+        if (this.root === null) return null
+        let iterator = this.root
+        while (iterator.left !== null) {
+            iterator = iterator.left
+        }
+        return iterator.value
+    }
+
+    findMax = () => {
+        if (this.root === null) return null
+        let iterator = this.root
+        while(iterator.right !== null) {
+            iterator = iterator.right
+        }
+        return iterator.value
+    }
+
 }
 
 module.exports = BinarySearchTree

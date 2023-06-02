@@ -56,6 +56,25 @@ class BinarySearchTree {
         return iterator.value
     }
 
+    isPresent = (element) => {
+        if (this.root === null) return false
+        var mostMin = Number.MAX_VALUE
+        var minMax = Number.MIN_VALUE
+        let iterator = this.root
+        while (iterator != null) {
+            if (iterator.value === element) return true
+            if (iterator.value < element) {
+                if (minMax > iterator.value) return false
+                iterator = iterator.right
+            }
+            else {
+                if (mostMin < iterator.value) return false
+                iterator = iterator.left
+            }
+        }
+        return false
+    }
+
 }
 
 module.exports = BinarySearchTree

@@ -18,6 +18,10 @@ describe("Binary Search Tree", () => {
             expect(sampleBST.findMax).toBeInstanceOf(Function)
         })
 
+        test('BST must have a isPresent method', () => {
+            expect(sampleBST.isPresent).toBeInstanceOf(Function)
+        })
+
     })
 
     describe("Functionality - Add Method", () => {
@@ -52,6 +56,29 @@ describe("Binary Search Tree", () => {
 
         test('The findMax method should return the maximum value in the binary search tree', () => {
             expect(sampleBST.findMax()).toBe(5)
+        })
+
+    })
+
+    describe('Functionality - isPresent method', () => {
+
+        const sampleBST = new BinarySearchTree()
+        sampleBST.add(5)
+        sampleBST.add(1)
+        sampleBST.add(2)
+        sampleBST.add(3)
+        sampleBST.add(4)
+
+        test('The isPresent method should correctly check for the presence or absence of elements added to the tree #1', () => {
+            expect(sampleBST.isPresent(4)).toBe(true)
+        })
+
+        test('The isPresent method should correctly check for the presence or absence of elements added to the tree #2', () => {
+            expect(sampleBST.isPresent(9)).toBe(false)
+        })
+
+        test('isPresent should handle cases where the tree is empty', () => {
+            expect(new BinarySearchTree().isPresent(9)).toBe(false)
         })
 
     })

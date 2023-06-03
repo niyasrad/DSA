@@ -1,4 +1,4 @@
-const BinarySearchTree = require('./BinarySearchTree')
+const { BinarySearchTree, Node, isBinarySearchTree } = require('./BinarySearchTree')
 
 describe("Binary Search Tree", () => {
 
@@ -83,4 +83,25 @@ describe("Binary Search Tree", () => {
 
     })
     
+    describe('Functionality - isBinarySearchTree method', () => {
+
+        test('Your BST should return true when checked with isBinarySearchTree()', () => {
+            const sampleBST = new BinarySearchTree()
+            sampleBST.add(5)
+            sampleBST.add(3)
+            sampleBST.add(7)
+            sampleBST.add(4)
+            expect(isBinarySearchTree(sampleBST)).toBe(true)
+        })
+
+        test('Your BST should return false when checked with a tree that is not a binary search tree', () => {
+            const wrongBST = new BinarySearchTree()
+            wrongBST.add(5)
+            wrongBST.root.left = new Node(6)
+            wrongBST.root.right = new Node(1)
+            expect(isBinarySearchTree(wrongBST)).toBe(false)
+        })
+
+    })
+
 })

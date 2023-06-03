@@ -6,6 +6,24 @@ class Node {
     }
 }
 
+const validateBinarySearchTree = (head, currentMin, currentMax) => {
+
+    if (head === null) return true
+    if (head.left !== null && (head.left.value >= head.value || head.left.value >= currentMin)) return false
+    if (head.right !== null && (head.right.value <= head.value || head.right.value <= currentMax)) return false
+
+    return validateBinarySearchTree(head.left, head.value, currentMax) && validateBinarySearchTree(head.right, currentMin, head.value)
+
+}
+
+const isBinarySearchTree = (tree) => {
+
+    if (tree.root === null) return true
+    return validateBinarySearchTree(tree.root, Math.MIN_VALUE, Math.MAX_VALUE) 
+
+}
+
+
 class BinarySearchTree {
     
     constructor() {
@@ -77,4 +95,4 @@ class BinarySearchTree {
 
 }
 
-module.exports = BinarySearchTree
+module.exports = { BinarySearchTree, Node, isBinarySearchTree }

@@ -22,6 +22,18 @@ describe("Binary Search Tree", () => {
             expect(sampleBST.isPresent).toBeInstanceOf(Function)
         })
 
+        test('BST must have a findMinHeight method', () => {
+            expect(sampleBST.findMinHeight).toBeInstanceOf(Function)
+        })
+
+        test('BST must have a findMaxHeight method', () => {
+            expect(sampleBST.findMaxHeight).toBeInstanceOf(Function)
+        })
+
+        test('BST must have a isBalanced method', () => {
+            expect(sampleBST.isBalanced).toBeInstanceOf(Function)
+        })
+
     })
 
     describe("Functionality - Add Method", () => {
@@ -104,4 +116,43 @@ describe("Binary Search Tree", () => {
 
     })
 
+    describe('Functionality - findHeight method', () => {
+
+        test('The findMinHeight method should return the minimum height of the tree', () => {
+            const sampleBST = new BinarySearchTree()
+            sampleBST.add(1)
+            sampleBST.add(2)
+            sampleBST.add(0)
+            expect(sampleBST.findMinHeight()).toBe(1)
+        })
+
+        test('The findMaxHeight method should return the maximum height of the tree', () => {
+            const sampleBST = new BinarySearchTree()
+            sampleBST.add(1)
+            sampleBST.add(2)
+            sampleBST.add(3)
+            sampleBST.add(4)
+            expect(sampleBST.findMaxHeight()).toBe(3)
+        })
+
+        test('The isBalanced method should return false if the tree is an unbalanced binary search tree', () => {
+            const sampleBST = new BinarySearchTree()
+            sampleBST.add(1)
+            sampleBST.add(2)
+            sampleBST.add(0)
+            sampleBST.add(3)
+            sampleBST.add(4)
+            expect(sampleBST.isBalanced()).toBe(false)
+        })
+
+        test('The isBalanced method should return true if the tree is a balanced binary search tree', () => {
+            const sampleBST = new BinarySearchTree()
+            sampleBST.add(1)
+            sampleBST.add(2)
+            sampleBST.add(0)
+            expect(sampleBST.isBalanced()).toBe(true)
+        })
+
+    })
+    
 })

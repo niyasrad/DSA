@@ -23,6 +23,17 @@ const isBinarySearchTree = (tree) => {
 
 }
 
+const findHeight = (head, way) => {
+
+    if (head === null) return 0
+    let leftHeight = findHeight(head.left, way)
+    let rightHeight = findHeight(head.right, way)
+    
+    if (way === 'min') return 1 + Math.min(leftHeight, rightHeight)
+    else return 1 + Math.max(leftHeight, rightHeight)
+
+}
+
 
 class BinarySearchTree {
     
@@ -93,6 +104,18 @@ class BinarySearchTree {
         return false
     }
 
+    findMinHeight = () => {
+        if (this.root === null) return -1
+        return findHeight(this.root, "min") - 1 
+    }
+
+    findMaxHeight = () => {
+        if (this.root === null) return -1
+        return findHeight(this.root, "max") - 1
+    }
+
+    isBalanced = () => this.findMaxHeight() - this.findMinHeight() <= 1
+    
 }
 
 module.exports = { BinarySearchTree, Node, isBinarySearchTree }

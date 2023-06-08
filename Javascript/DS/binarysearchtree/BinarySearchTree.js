@@ -34,6 +34,36 @@ const findHeight = (head, way) => {
 
 }
 
+const treeTraversal = (array, head, order) => {
+
+    if (head === null) return
+
+    switch(order){
+
+        case "preorder":
+            array.push(head.value)
+            treeTraversal(array, head.left, order)
+            treeTraversal(array, head.right, order)
+            break
+
+        case "inorder":
+            treeTraversal(array, head.left, order)
+            array.push(head.value)
+            treeTraversal(array, head.right, order)
+            break
+
+        case "postorder":
+            treeTraversal(array, head.left, order)
+            treeTraversal(array, head.right, order)
+            array.push(head.value)
+            break
+
+        default:
+            break
+        
+    }
+
+}
 
 class BinarySearchTree {
     
@@ -65,6 +95,27 @@ class BinarySearchTree {
                 return null
             }
         }
+    }
+
+    inorder = () => {
+        if (this.root === null) return null
+        const traversalArray = []
+        treeTraversal(traversalArray, this.root, "inorder")
+        return traversalArray
+    }
+
+    preorder = () => {
+        if (this.root === null) return null
+        const traversalArray = []
+        treeTraversal(traversalArray, this.root, "preorder")
+        return traversalArray
+    }
+
+    postorder = () => { 
+        if (this.root === null) return null
+        const traversalArray = []
+        treeTraversal(traversalArray, this.root, "postorder")
+        return traversalArray
     }
 
     findMin = () => {

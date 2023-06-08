@@ -10,6 +10,18 @@ describe("Binary Search Tree", () => {
             expect(sampleBST.add).toBeInstanceOf(Function)
         })
 
+        test('BST must have an inorder method', () => {
+            expect(sampleBST.inorder).toBeInstanceOf(Function)
+        })
+
+        test('BST must have a preorder method', () => {
+            expect(sampleBST.preorder).toBeInstanceOf(Function)
+        })
+
+        test('BST must have a postorder method', () => {
+            expect(sampleBST.postorder).toBeInstanceOf(Function)
+        })
+
         test('BST must have a findMin method', () => {
             expect(sampleBST.findMin).toBeInstanceOf(Function)
         })
@@ -68,6 +80,44 @@ describe("Binary Search Tree", () => {
 
         test('The findMax method should return the maximum value in the binary search tree', () => {
             expect(sampleBST.findMax()).toBe(5)
+        })
+
+    })
+
+    describe('Functionality - Depth First Search Traversals', () => {
+
+        const sampleBST = new BinarySearchTree()
+        const emptyBST = new BinarySearchTree()
+        sampleBST.add(40)
+        sampleBST.add(30)
+        sampleBST.add(50)
+        sampleBST.add(25)
+        sampleBST.add(35)
+        sampleBST.add(45)
+        sampleBST.add(60)
+
+        test('The inorder method should return an array of the node values that result from an inorder traversal', () => {
+            expect(sampleBST.inorder()).toEqual([25, 30, 35, 40, 45, 50, 60])
+        })
+
+        test('The preorder method should return an array of the node values that result from a preorder traversal', () => {
+            expect(sampleBST.preorder()).toEqual([40, 30, 25, 35, 50, 45, 60])
+        })
+
+        test('The postorder method should return an array of the node values that result from a postorder traversal', () => {
+            expect(sampleBST.postorder()).toEqual([25, 35, 30, 45, 60, 50, 40])
+        })
+
+        test('The inorder method should return null for an empty tree', () => {
+            expect(emptyBST.inorder()).toBe(null)
+        })
+
+        test('The preorder method should return null for an empty tree', () => {
+            expect(emptyBST.preorder()).toBe(null)
+        })
+
+        test('The postorder method should return null for an empty tree', () => {
+            expect(emptyBST.postorder()).toBe(null)
         })
 
     })

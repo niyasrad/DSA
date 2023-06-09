@@ -34,6 +34,7 @@ const findHeight = (head, way) => {
 
 }
 
+// Deprecated Version For Tree Traversal
 const treeTraversal = (array, head, order) => {
 
     if (head === null) return
@@ -97,25 +98,48 @@ class BinarySearchTree {
         }
     }
 
-    inorder = () => {
-        if (this.root === null) return null
-        const traversalArray = []
-        treeTraversal(traversalArray, this.root, "inorder")
-        return traversalArray
+    levelOrder = (queue = [this.root], result = []) => {
+        const node = queue.shift()
+        if (node === null || node === undefined) return null
+        result.push(node.value)
+        if (node.left !== null) queue.push(node.left)
+        if (node.right !== null) queue.push(node.right)
+        this.levelOrder(queue, result)
+        return result
     }
 
-    preorder = () => {
-        if (this.root === null) return null
-        const traversalArray = []
-        treeTraversal(traversalArray, this.root, "preorder")
-        return traversalArray
+    reverseLevelOrder = (queue = [this.root], result =[]) => {
+        const node = queue.shift()
+        if (node === null || node === undefined) return null
+        result.push(node.value)
+        if (node.right !== null) queue.push(node.right)
+        if (node.left !== null) queue.push(node.left)
+        this.reverseLevelOrder(queue, result)
+        return result
     }
 
-    postorder = () => { 
-        if (this.root === null) return null
-        const traversalArray = []
-        treeTraversal(traversalArray, this.root, "postorder")
-        return traversalArray
+    inorder = (head = this.root, result = []) => {
+        if (head === null) return null
+        this.inorder(head.left, result)
+        result.push(head.value)
+        this.inorder(head.right, result)
+        return result
+    } 
+
+    preorder = (head = this.root, result = []) => {
+        if (head === null) return null
+        result.push(head.value)
+        this.preorder(head.left, result)
+        this.preorder(head.right, result)
+        return result  
+    }
+
+    postorder = (head = this.root, result = []) => {
+        if (head === null) return null
+        this.postorder(head.left, result)
+        this.postorder(head.right, result)
+        result.push(head.value)
+        return result
     }
 
     findMin = () => {

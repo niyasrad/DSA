@@ -46,6 +46,14 @@ describe("Binary Search Tree", () => {
             expect(sampleBST.isBalanced).toBeInstanceOf(Function)
         })
 
+        test('BST must have a levelOrder method', () => {
+            expect(sampleBST.levelOrder).toBeInstanceOf(Function)
+        })
+
+        test('BST must have a reverseLevelOrder method', () => {
+            expect(sampleBST.reverseLevelOrder).toBeInstanceOf(Function)
+        })
+
     })
 
     describe("Functionality - Add Method", () => {
@@ -118,6 +126,38 @@ describe("Binary Search Tree", () => {
 
         test('The postorder method should return null for an empty tree', () => {
             expect(emptyBST.postorder()).toBe(null)
+        })
+
+    })
+
+    describe('Functionality - Breadth First Seach Traversals', () => {
+
+        const sampleBST = new BinarySearchTree()
+        const emptyBST = new BinarySearchTree()
+        sampleBST.add(8)
+        sampleBST.add(3)
+        sampleBST.add(10)
+        sampleBST.add(1)
+        sampleBST.add(6)
+        sampleBST.add(14)
+        sampleBST.add(4)
+        sampleBST.add(7)
+        sampleBST.add(13)
+
+        test('The levelOrder method should return an array of the tree node values explored in level order', () => {
+            expect(sampleBST.levelOrder()).toEqual([8, 3, 10, 1, 6, 14, 4, 7, 13])
+        })
+
+        test('The reverseLevelOrder method should return an array of the tree node values explored in reverse level order', () => {
+            expect(sampleBST.reverseLevelOrder()).toEqual([8, 10, 3, 14, 6, 1, 13, 7, 4])
+        })
+
+        test('The levelOrder method should return null for an empty tree', () => {
+            expect(emptyBST.levelOrder()).toBe(null)
+        })
+
+        test('The reverseLevelOrder method should return null for an empty tree', () => {
+            expect(emptyBST.reverseLevelOrder()).toBe(null)
         })
 
     })

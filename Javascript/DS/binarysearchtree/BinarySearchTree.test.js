@@ -54,6 +54,10 @@ describe("Binary Search Tree", () => {
             expect(sampleBST.reverseLevelOrder).toBeInstanceOf(Function)
         })
 
+        test('BST must have a remove method', () => {
+            expect(sampleBST.remove).toBeInstanceOf(Function)
+        })
+
     })
 
     describe("Functionality - Add Method", () => {
@@ -245,4 +249,32 @@ describe("Binary Search Tree", () => {
 
     })
     
+    describe('Functionality - remove method', () => {
+
+        const sampleBST = new BinarySearchTree()
+
+        test('Trying to remove an element from an empty tree should return null', () => {
+            expect(sampleBST.remove(1)).toBe(null)
+        })
+
+        test('Trying to remove an element that does not exist should return null', () => {
+            sampleBST.add(1)
+            expect(sampleBST.remove(3)).toBe(null)
+        })
+
+        test('If the root node has no children, deleting it should set the root to null', () => {
+            sampleBST.remove(1)
+            expect(sampleBST.root).toBe(null)
+        })
+
+        test('The remove method should remove leaf nodes from the tree', () => {
+            sampleBST.add(1)
+            sampleBST.add(2)
+            sampleBST.add(0)
+            sampleBST.remove(1)
+            expect(sampleBST.root).toBe(null)
+        })
+
+    })
+
 })

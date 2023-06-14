@@ -98,6 +98,33 @@ class BinarySearchTree {
         }
     }
 
+    remove = (element) => {
+        if (this.root === null) return null
+        let iterator = this.root
+        let parent = null
+        let way = ""
+        if (this.root.value === element) {
+            this.root = null
+            return
+        }
+        while (true) {
+            if (iterator === null) return null
+            if (element > iterator.value) {
+                parent = iterator
+                way = "right"
+                iterator = iterator.right
+            } else if (element < iterator.value) {
+                parent = iterator
+                way = "left"
+                iterator = iterator.left
+            } else {
+                if (way === "left") parent.left = null
+                else parent.right = null
+                return
+            }
+        }
+    }
+
     levelOrder = (queue = [this.root], result = []) => {
         const node = queue.shift()
         if (node === null || node === undefined) return null

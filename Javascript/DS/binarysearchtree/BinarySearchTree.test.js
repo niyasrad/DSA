@@ -58,6 +58,10 @@ describe("Binary Search Tree", () => {
             expect(sampleBST.remove).toBeInstanceOf(Function)
         })
 
+        test('BST must have an invert method', () => {
+            expect(sampleBST.invert).toBeInstanceOf(Function)
+        })
+
     })
 
     describe("Functionality - Add Method", () => {
@@ -297,6 +301,26 @@ describe("Binary Search Tree", () => {
             sampleBST.add(3)
             sampleBST.remove(2)
             expect(sampleBST.root.value).toBe(3)
+        })
+
+    })
+
+    describe('Functionality - invert method', () => {
+
+        test('The invert method should correctly invert the tree structure', () => {
+            const sampleBST = new BinarySearchTree()
+            sampleBST.add(1)
+            sampleBST.add(2)
+            sampleBST.add(3)
+            sampleBST.add(0)
+            sampleBST.add(-1)
+            sampleBST.invert()
+            expect(sampleBST.root.left.value).toBe(2)
+        })
+
+        test('Inverting an empty tree should return null', () => {
+            const sampleBST = new BinarySearchTree()
+            expect(sampleBST.invert()).toBe(null)
         })
 
     })

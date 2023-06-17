@@ -254,6 +254,17 @@ class BinarySearchTree {
         return findHeight(this.root, "max") - 1
     }
 
+    invert = (head = this.root) => {
+        if (head === null) return null
+
+        const tempCopy = head.left
+        head.left = head.right
+        head.right = tempCopy
+
+        this.invert(head.left)
+        this.invert(head.right)
+    }
+
     isBalanced = () => this.findMaxHeight() - this.findMinHeight() <= 1
     
 }

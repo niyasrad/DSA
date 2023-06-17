@@ -100,29 +100,67 @@ class BinarySearchTree {
 
     remove = (element) => {
         if (this.root === null) return null
-        let iterator = this.root
         let parent = null
-        let way = ""
-        if (this.root.value === element) {
-            this.root = null
-            return
-        }
-        while (true) {
-            if (iterator === null) return null
-            if (element > iterator.value) {
-                parent = iterator
-                way = "right"
-                iterator = iterator.right
-            } else if (element < iterator.value) {
-                parent = iterator
-                way = "left"
+        let iterator = this.root
+        while (iterator !== null) {
+            if (iterator.value === element) {
+                const childrenCount = (iterator.left !== null ? 1 : 0) + (iterator.right !== null ? 1: 0)
+                switch (childrenCount) {
+                    case 0:
+                        if (parent === null) {
+                            this.root = null
+                        } else {
+                            const way = parent.left === iterator ? 'left' : 'right'
+                            parent[way] = null
+                        }
+                        return 
+                    case 1:
+                        if (parent === null) {
+                            this.root = iterator.left !== null ? iterator.left : iterator.right
+                        } else {
+                            const way = parent.left === iterator ? 'left' : 'right'
+                            parent[way] = iterator.left !== null ? iterator.left : iterator.right
+                        }
+                        return 
+                    case 2: 
+                        if (parent === null) {
+                            let corParent = this.root
+                            let corIterator = this.root.right
+                            while (corIterator.left !== null) {
+                                corParent = corIterator
+                                corIterator = corIterator.left
+                            }
+                            const corWay = corParent.left === corIterator ? "left" : "right"
+                            corParent[corWay] = null
+                            this.root = corIterator
+                            this.root.left = iterator.left
+                            this.root.right = iterator.right
+                        } else {
+                            let corParent = iterator
+                            let corIterator = iterator.left
+                            while (corIterator.left !== null) {
+                                corParent = corIterator
+                                corIterator = corIterator.left
+                            }
+                            const corWay = corParent.left === corIterator ? "left" : "right"
+                            corParent[corWay] = null
+                            const way = parent.left === iterator ? 'left' : 'right'
+                            corIterator.left = iterator.left
+                            corIterator.right = iterator.right
+                            parent[way] = corIterator
+                        }
+                        return
+                }
+                
+            } 
+            parent = iterator
+            if (iterator.value > element) {
                 iterator = iterator.left
-            } else {
-                if (way === "left") parent.left = null
-                else parent.right = null
-                return
+            } else if (iterator.value < element) {
+                iterator = iterator.right
             }
         }
+        return null
     }
 
     levelOrder = (queue = [this.root], result = []) => {

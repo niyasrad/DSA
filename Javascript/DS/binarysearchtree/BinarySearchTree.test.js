@@ -271,8 +271,32 @@ describe("Binary Search Tree", () => {
             sampleBST.add(1)
             sampleBST.add(2)
             sampleBST.add(0)
+            sampleBST.remove(2)
+            expect(sampleBST.root.right).toBe(null)
+        })
+
+        test('The remove method should remove nodes with one child', () => {
+            sampleBST.remove(0)
+            expect(sampleBST.root.value).toBe(1)
+        })
+
+        test('Removing the root in a tree with two nodes should set the second to be the root', () => {
+            sampleBST.add(-1)
+            sampleBST.add(1)
+            sampleBST.remove(0)
+            expect(sampleBST.root.value).toBe(1)
+        })
+
+        test('The remove method should remove nodes with two children while maintaining the binary search tree structure', () => {
+            sampleBST.add(2)
             sampleBST.remove(1)
-            expect(sampleBST.root).toBe(null)
+            expect(sampleBST.root.left.value).toBe(-1)
+        })
+
+        test('The root should be removable on a tree of three nodes', () => {
+            sampleBST.add(3)
+            sampleBST.remove(2)
+            expect(sampleBST.root.value).toBe(3)
         })
 
     })

@@ -31,6 +31,7 @@ class StudentRepository {
     }
 
     update = (roll, entry, updatedValue) => {
+        if (!["name", "roll", "age"].includes(entry)) return
         this.studentStorage.forEach((studentEntry, index) => {
             if (studentEntry.roll === roll) {
                 this.studentStorage[index][entry] = updatedValue

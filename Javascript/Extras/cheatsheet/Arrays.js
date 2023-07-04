@@ -107,3 +107,58 @@ var lengthOfLongestSubstring = function(s, stringSet = new Set()) {
     }
     return maxLengthOfSubstring
 }
+
+
+var groupAnagrams = function(strs) {
+    let outputArray = []
+    let resultAnagrams = new Map()
+
+    for (let strInstance of strs) {
+        const strCheck = strInstance.split('').sort().join('')
+        if (resultAnagrams.has(strCheck)) {
+            let strAnagrams = resultAnagrams.get(strCheck)
+            resultAnagrams.set(strCheck, [...strAnagrams, strInstance])
+        } else {
+            resultAnagrams.set(strCheck, [strInstance])
+        }
+    }
+    for (let valueInstance of resultAnagrams.values()) {
+        outputArray.push(valueInstance)
+    }
+
+    return outputArray
+}
+
+var topKFrequent = function(nums, k) {
+    let outputArray = [];
+    let frequencyMap = new Map()
+    
+    for (let numberInstance of nums) {
+        frequencyMap.set(numberInstance, frequencyMap.get(numberInstance) ? frequencyMap.get(numberInstance) + 1 : 1)
+    }
+
+    const frequencyArray = [...frequencyMap.entries()].sort((a, b) => b[1] - a[1])
+    
+    for (let iteration = 0; iteration < k; iteration++) {
+        outputArray.push(frequencyArray[iteration][0])
+    }
+    return outputArray
+}
+
+var productExceptSelf = function(nums) {
+    const productResult = new Array(nums.length).fill(1)
+    let beforeProduct = 1
+
+    for (let iteration = 0; iteration < nums.length; iteration++) {
+        productResult[iteration] *= beforeProduct
+        beforeProduct *= nums[iteration]
+    }
+
+    let afterProduct = 1
+    for (let iteration = nums.length - 1; iteration >= 0; iteration--) {
+        productResult[iteration] *= afterProduct
+        afterProduct *= nums[iteration]
+    }
+
+    return productResult
+}
